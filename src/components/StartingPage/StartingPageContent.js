@@ -43,14 +43,16 @@ const StartingPageContent = (props) => {
       email: emailRef.current.value,
     };
 
-    const formIsValid = enteredData.name.trim().length > 0 && enteredData.number.length > 0 && enteredData.email.includes('@')
+    const formIsValid = enteredData.name.trim().length > 1 && enteredData.number.length > 1 && enteredData.email.includes('@')
+    console.log(formIsValid)
 
-    if (formIsValid) {
+    if (!formIsValid) {
+      return;
+    } else {
       setContactList((prevData) => {
         return [enteredData, ...prevData];
       });
     }
-
 
     const response = await fetch('https://contacts-46f9e-default-rtdb.firebaseio.com/contacts.json',
     {
