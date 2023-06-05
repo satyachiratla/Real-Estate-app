@@ -53,3 +53,9 @@
   background-color: #c291e2;
   color: #38015c;
 }
+
+main {
+  text-align: center;
+  margin: 5rem 0;
+  color: #38015c
+}

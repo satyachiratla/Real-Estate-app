@@ -6,6 +6,7 @@ import UserProfile from './components/Profile/UserProfile';
 import AuthPage from './pages/AuthPage';
 import HomePage from './pages/HomePage';
 import AuthContext from './store/auth-context';
+import DetailsPage from './pages/DetailsPage'
 
 function App() {
 
@@ -24,6 +25,9 @@ function App() {
           {authCtx.isLoggedIn && <UserProfile />}
           {!authCtx.isLoggedIn && <Redirect to='/auth' />}
         </Route>
+        {authCtx.isLoggedIn && <Route path="/:id">
+          <DetailsPage />
+        </Route>}
         <Route path="*">
           <Redirect to="/" />
         </Route>
